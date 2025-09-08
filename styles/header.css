@@ -127,19 +127,18 @@
 
 .gadget-btn {
   position: relative;
-  padding: 5px 25px 5px 40px; /* extra left space for dot */
+  padding: 5px 25px 5px 40px; 
   font-size: 16px;
   font-weight: bold;
   color: black;
   background-color: #fff;
-  border: 2px solid #fc4a4a; /* light green border */
-  border-radius: 10px; /* pill shape */
+  border: 2px solid #fc4a4a; 
+  border-radius: 10px; 
   cursor: pointer;
   transition: all 0.3s ease;
   margin-left: 50px;
 }
 
-/* Bright green dot */
 .gadget-btn::before {
   content: "";
   position: absolute;
@@ -152,14 +151,12 @@
   border-radius: 50%;
 }
 
-/* Hover = orange outline */
 .gadget-btn:hover {
   background-color: #1c8370;  
   border-color: #1c8370;
   color: white;
 }
 
-/* Active (click) = blue outline */
 .gadget-btn:active {
   border-color: #2d71f8;
   color: #2d71f8;

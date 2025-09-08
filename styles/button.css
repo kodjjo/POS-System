@@ -1,7 +1,7 @@
 .button-row {
-  display: flex;                 /* Use flexbox */
-  gap: 25px;                     /* Space between buttons */
-  margin-left: 200px ;                /* Space above and below */
+  display: flex;                 
+  gap: 25px;                     
+  margin-left: 200px ;                
   margin-top: 90px;
 }
 
