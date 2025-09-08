@@ -1,0 +1,152 @@
+.order-card {
+  position: fixed;
+  top: 120px;                  /* sits below the header */
+  right: 20;
+  bottom: 0;
+  background-color: whitesmoke;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  border-radius: 30px;
+  padding: 10px;
+  overflow-y: auto;   /* keep scrolling */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.order-card::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* Header inside order card */
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Product row inside order card */
+.order-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.order-info1 {
+  display: flex;
+  align-items: center;
+}
+
+.order-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.order-txt-div {
+  margin-left: 10px;
+}
+
+.order-txt1 {
+  margin: 0;
+  font-weight: bold;
+}
+
+.order-txt2 {
+  margin: 3px 0 0 0;
+  color: #444;
+  font-size: 14px;
+}
+
+/* Quantity buttons */
+.order-info-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.order-btn1,
+.order-btn2 {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid #EE8A2F;
+  background-color: white;
+  color: #EE8A2F;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.order-btn1:hover,
+.order-btn2:hover {
+  background-color: #EE8A2F;
+  color: white;
+  transform: scale(1.1);
+}
+
+.order-btn1:active,
+.order-btn2:active {
+  transform: scale(0.9);
+}
+
+/* Subtotal card */
+.subtotal-card {
+  background-color: white;
+  border-radius: 20px;
+  padding: 10px 20px;
+  margin-top: 15px;
+}
+
+.st-txt {
+  margin: 10px 0 0;
+}
+
+.st-txt1 {
+  margin: 10px 0 15px;
+}
+
+/* Align amounts neatly */
+.amount,
+.amount1,
+.amount2 {
+  font-weight: bolder;
+  float: right;
+}
+
+/* Total card */
+.total-div {
+  background-color: white;
+  border-top: thin dashed black;
+  border-radius: 20px;
+  padding: 10px 20px;
+  margin-top: 10px;
+}
+
+.st-txt2 {
+  margin: 0;
+}
+
+/* Print button */
+.print-btn-div {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.print-btn {
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 100px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+.print-btn:hover {
+  background: #333;
+}

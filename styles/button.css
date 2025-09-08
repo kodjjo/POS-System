@@ -1,0 +1,23 @@
+.button-row {
+  display: flex;                 /* Use flexbox */
+  gap: 25px;                     /* Space between buttons */
+  margin-left: 200px ;                /* Space above and below */
+  margin-top: 90px;
+}
+
+.pos-btn {
+  padding: 5px 20px 5px 20px;
+  border: 2px solid #1c8370;
+  border-radius: 10px;
+  background: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.pos-btn:hover {
+  background: #1c8370;
+  border-color: #1c8370;
+  color: white;
+}
+

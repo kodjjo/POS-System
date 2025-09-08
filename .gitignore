@@ -1,0 +1,24 @@
+# Logs
+*.log
+
+# OS / system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE / editor settings
+.vscode/
+.idea/
+
+# Node / build (only if you use them later)
+node_modules/
+dist/
+build/
+
+# Environment / secrets
+.env
+*.env
+
+# Local uploads / databases
+uploads/
+*.sqlite3

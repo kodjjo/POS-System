@@ -1,0 +1,44 @@
+.sidebar {
+    background-color: #1e93ab;
+    position: fixed;
+    top: 100;
+    bottom: 0;
+    left: 0;
+    width: 150px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;   
+}
+
+.sidebar-middle {
+    margin-top: 20px;
+}
+
+.sb-icon-div {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.sb-icon-div:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+}
+
+.sb-icon1 {
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.sb-txt {
+  margin: 0px;
+  font-size: 16px;
+  color: white;
+}
+
+.sidebar-last {
+    margin-top: 215px;
+}
