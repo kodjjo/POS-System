@@ -1,6 +1,6 @@
 .main-content {
   background-color: white;
-  margin-left: 150px;
+  margin-left: 170px;
   margin-right: 310px;
   margin-top: 20px;
   padding: 20px;
@@ -9,8 +9,8 @@
 .product-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr); 
-  gap: 25px; 
-  padding: 10px;
+  column-gap: 16px;
+  row-gap: 40px;
 }
 
 .product-card {
@@ -38,7 +38,7 @@
 }
 
 .cart-picture {
-  width: 170px;
+  width: 200px;
   height: 130px;
   object-fit: cover;
   border-radius: 12px;
