@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>POS Admin Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+</head>
+<body class="flex h-screen bg-gray-100 font-sans">
+
+  <!-- SIDEBAR -->
+  <aside id="sidebar" class="w-64 bg-indigo-800 text-white flex flex-col shrink-0 transition-all">
+    <div class="flex items-center gap-2 p-4 border-b border-gray-700">
+      <img src="icons/pos.png" class="w-10 h-10" alt="POS Logo">
+      <div>
+        <p class="text-lg font-bold">POS PAY</p>
+        <p class="text-xs text-gray-300">Admin Dashboard</p>
+      </div>
+    </div>
+
+    <nav class="flex-1 p-4 space-y-2">
+      <a href="#" class="flex items-center gap-2 p-2 rounded hover:bg-gray-700 transition">
+        <img src="icons/home 2.png" class="w-5 h-5" alt=""> <span>Dashboard</span>
+      </a>
+      <a href="POS.html" class="flex items-center gap-2 p-2 rounded hover:bg-gray-700 transition">
+        <img src="icons/products box.png" class="w-5 h-5" alt=""> <span>Products</span>
+      </a>
+      <a href="#" class="flex items-center gap-2 p-2 rounded hover:bg-gray-700 transition">
+        <img src="icons/sales.png" class="w-5 h-5" alt=""> <span>Sales</span>
+      </a>
+      <a href="#" class="flex items-center gap-2 p-2 rounded hover:bg-gray-700 transition">
+        <img src="icons/report.png" class="w-5 h-5" alt=""> <span>Reports</span>
+      </a>
+    </nav>
+
+    <div class="p-4 border-t border-gray-700 space-y-2">
+      <a href="#" class="flex items-center gap-2 p-2 rounded hover:bg-gray-700 transition">
+        <img src="icons/settings.png" class="w-5 h-5" alt=""> <span>Settings</span>
+      </a>
+      <a href="#" class="flex items-center gap-2 p-2 rounded hover:bg-gray-700 transition">
+        <img src="icons/logout.png" class="w-5 h-5" alt=""> <span>Logout</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <div class="flex-1 flex flex-col overflow-hidden">
+    <!-- HEADER -->
+    <header class="flex items-center justify-between bg-white shadow px-6 py-3 sticky top-0 z-20">
+      <div class="flex items-center gap-3">
+        <!-- Sidebar toggle -->
+        <button id="toggleSidebar" class="md:hidden text-gray-600 p-2 rounded hover:bg-gray-100" title="Toggle sidebar">
+          <i class="fas fa-bars"></i>
+        </button>
+
+<!-- Quick category button -->
+<button class="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 
+  text-white px-4 py-2 rounded-full shadow-md hover:from-blue-700 hover:to-blue-600 
+  transition duration-200 ease-in-out">
+  Electronics
+</button>
+
+      </div>
+
+      <!-- Search + Profile -->
+      <div class="flex items-center gap-4">
+        <!-- Search -->
+<div class="flex items-center w-64 bg-gray-100 rounded-full shadow px-3">
+  <input type="text" placeholder="Search products..." class="flex-1 bg-transparent px-2 py-2 text-sm outline-none">
+  <button class="text-blue-600 hover:text-blue-800">
+    <img src="icons/search-analytics.png" class="w-5 h-5">
+  </button>
+</div>
+
+
+        <!-- Icons & Profile -->
+        <div class="flex items-center gap-3">
+          <div class="relative">
+            <img id="notifIcon" src="icons/notification.png" class="w-6 h-6 cursor-pointer" alt="notif" />
+            <span id="notifBadge" class="hidden absolute -top-1 -right-1 inline-flex items-center justify-center px-2 py-0.5 text-xs font-bold leading-none text-white bg-red-500 rounded-full">3</span>
+          </div>
+          <div class="relative">
+            <img id="bellIcon" src="icons/bell.png" class="w-6 h-6 cursor-pointer" alt="bell" />
+          </div>
+
+          <!-- Admin dropdown -->
+          <div class="relative">
+            <button id="profileBtn" class="flex items-center gap-2 bg-gray-200 px-3 py-1 rounded">
+              Admin <img src="icons/arrow-down-sign-to-navigate.png" class="w-3 h-3" alt="">
+            </button>
+            <div id="profileMenu" class="hidden absolute right-0 mt-2 w-40 bg-white rounded shadow text-sm">
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Profile</a>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Settings</a>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Logout</a>
+            </div>
+          </div>
+
+          <img src="channelspic/admin.png" class="w-8 h-8 rounded-full border" alt="admin" />
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="flex-1 overflow-y-auto p-6">
+      <!-- CARDS -->
+<!-- Uniform Cards (all same style) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+  <div class="bg-white p-6 rounded-lg shadow">
+    <p class="text-sm text-gray-500">Total Sales</p>
+    <p class="text-lg font-semibold text-green-600">₵12,540</p>
+    <p class="text-xs text-gray-400">This month</p>
+  </div>
+  <div class="bg-white p-6 rounded-lg shadow">
+    <p class="text-sm text-gray-500">Products</p>
+    <p class="text-lg font-semibold text-blue-600">142</p>
+    <p class="text-xs text-gray-400">In catalogue</p>
+  </div>
+  <div class="bg-white p-6 rounded-lg shadow">
+    <p class="text-sm text-gray-500">Active Users</p>
+    <p class="text-lg font-semibold text-purple-600">8</p>
+    <p class="text-xs text-gray-400">Logged in today</p>
+  </div>
+  <div class="bg-white p-6 rounded-lg shadow">
+    <p class="text-sm text-gray-500">Pending Orders</p>
+    <p class="text-lg font-semibold text-orange-600">23</p>
+    <p class="text-xs text-gray-400">Awaiting approval</p>
+  </div>
+  <div class="bg-white p-6 rounded-lg shadow">
+    <p class="text-sm text-gray-500">Top Product</p>
+    <p class="text-lg font-semibold text-blue-600">iPhone 15 Pro</p>
+    <p class="text-xs text-gray-400">320 units sold</p>
+  </div>
+  <div class="bg-white p-6 rounded-lg shadow">
+    <p class="text-sm text-gray-500">Top Cashier</p>
+    <p class="text-lg font-semibold text-green-600">Ama Serwaa</p>
+    <p class="text-xs text-gray-400">Handled ₵5,200 today</p>
+  </div>
+  <div class="bg-white p-6 rounded-lg shadow">
+    <p class="text-sm text-gray-500">Low Stock Alert</p>
+    <p class="text-lg font-semibold text-red-600">Printer Ink</p>
+    <p class="text-xs text-gray-400">Only 5 left</p>
+  </div>
+  <div class="bg-white p-6 rounded-lg shadow">
+    <p class="text-sm text-gray-500">Today’s Revenue</p>
+    <p class="text-lg font-semibold text-purple-600">₵3,480</p>
+    <p class="text-xs text-gray-400">+12% vs yesterday</p>
+  </div>
+</div>
+
+
+      <!-- GRID -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- RECENT SALES -->
+        <section class="lg:col-span-2 bg-white rounded-lg shadow p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="text-lg font-bold">Recent Sales</h2>
+            <button id="viewAllBtn" class="text-sm font-medium text-indigo-600 hover:underline">View all <i class="fas fa-chevron-right ml-1"></i></button>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table id="salesTable" class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-gray-100 text-sm">
+                  <th class="p-3">Date</th>
+                  <th class="p-3">Cashier</th>
+                  <th class="p-3">Items Sold</th>
+                  <th class="p-3">Total Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b hover:bg-gray-50">
+                  <td class="p-3">2025-10-03</td>
+                  <td class="p-3">Papa Kwesi</td>
+                  <td class="p-3">5</td>
+                  <td class="p-3">$2,400</td>
+                </tr>
+                <tr class="border-b hover:bg-gray-50">
+                  <td class="p-3">2025-10-02</td>
+                  <td class="p-3">Aubrey Drake</td>
+                  <td class="p-3">8</td>
+                  <td class="p-3">$4,350</td>
+                </tr>
+                <tr class="border-b hover:bg-gray-50">
+                  <td class="p-3">2025-10-01</td>
+                  <td class="p-3">Trey Songz</td>
+                  <td class="p-3">3</td>
+                  <td class="p-3">$760</td>
+                </tr>
+                <tr class="border-b hover:bg-gray-50">
+                  <td class="p-3">2025-09-30</td>
+                  <td class="p-3">Ama Serwaa</td>
+                  <td class="p-3">10</td>
+                  <td class="p-3">$5,200</td>
+                </tr>
+                <tr class="border-b hover:bg-gray-50">
+                  <td class="p-3">2025-09-29</td>
+                  <td class="p-3">Michael Owusu</td>
+                  <td class="p-3">6</td>
+                  <td class="p-3">$2,950</td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td class="p-3">2025-09-28</td>
+                  <td class="p-3">Akua Mensah</td>
+                  <td class="p-3">4</td>
+                  <td class="p-3">$1,420</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- RIGHT PANEL -->
+        <aside class="space-y-6">
+          <!-- Quick Actions -->
+          <div class="bg-white rounded-lg shadow p-5">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-lg font-medium text-gray-900">Quick Actions</h3>
+              <button id="quickMore" class="text-sm text-indigo-600 hover:underline">More</button>
+            </div>
+
+            <div class="grid grid-cols-1 gap-3">
+              <button class="w-full flex items-center justify-between px-4 py-3 bg-indigo-50 text-indigo-700 rounded-md hover:bg-indigo-100 transition" onclick="actionToast('Add new product')">
+                <div class="flex items-center gap-3">
+                  <i class="fas fa-box-open"></i>
+                  <span>Add Product</span>
+                </div>
+                <i class="fas fa-plus"></i>
+              </button>
+              <button class="w-full flex items-center justify-between px-4 py-3 bg-indigo-50 text-indigo-700 rounded-md hover:bg-indigo-100 transition" onclick="actionToast('New sale')">
+                <div class="flex items-center gap-3">
+                  <i class="fas fa-cash-register"></i>
+                  <span>New Sale</span>
+                </div>
+                <i class="fas fa-shopping-cart"></i>
+              </button>
+              <button class="w-full flex items-center justify-between px-4 py-3 bg-indigo-50 text-indigo-700 rounded-md hover:bg-indigo-100 transition" onclick="actionToast('Process refund')">
+                <div class="flex items-center gap-3">
+                  <i class="fas fa-undo-alt"></i>
+                  <span>Process Refund</span>
+                </div>
+                <i class="fas fa-receipt"></i>
+              </button>
+              <button class="w-full flex items-center justify-between px-4 py-3 bg-indigo-50 text-indigo-700 rounded-md hover:bg-indigo-100 transition" onclick="actionToast('Run sales report')">
+                <div class="flex items-center gap-3">
+                  <i class="fas fa-chart-line"></i>
+                  <span>Run Sales Report</span>
+                </div>
+                <i class="fas fa-file-invoice-dollar"></i>
+              </button>
+              <button class="w-full flex items-center justify-between px-4 py-3 bg-indigo-50 text-indigo-700 rounded-md hover:bg-indigo-100 transition" onclick="actionToast('Send reminder')">
+                <div class="flex items-center gap-3">
+                  <i class="fas fa-envelope"></i>
+                  <span>Send Reminder</span>
+                </div>
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Notifications -->
+          <div class="bg-white rounded-lg shadow p-5">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-lg font-medium text-gray-900">Notifications</h3>
+              <span class="text-sm text-gray-500">3 new</span>
+            </div>
+
+            <div class="space-y-4">
+              <div class="flex items-start gap-3">
+                <div class="flex-shrink-0 pt-0.5">
+                  <div class="h-10 w-10 rounded-full bg-red-100 flex items-center justify-center text-red-600">
+                    <i class="fas fa-exclamation"></i>
+                  </div>
+                </div>
+                <div>
+                  <p class="text-sm font-medium text-gray-900">3 employees forgot to clock out</p>
+                  <p class="text-xs text-gray-500">Yesterday at 5:45 PM</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="flex-shrink-0 pt-0.5">
+                  <div class="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+                    <i class="fas fa-clock"></i>
+                  </div>
+                </div>
+                <div>
+                  <p class="text-sm font-medium text-gray-900">New overtime request</p>
+                  <p class="text-xs text-gray-500">Today at 8:30 AM</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="flex-shrink-0 pt-0.5">
+                  <div class="h-10 w-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                    <i class="fas fa-check"></i>
+                  </div>
+                </div>
+                <div>
+                  <p class="text-sm font-medium text-gray-900">System update completed</p>
+                  <p class="text-xs text-gray-500">Today at 6:00 AM</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 text-center">
+              <button id="viewNotifications" class="text-sm font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none">
+                View all notifications <i class="fas fa-chevron-right ml-1"></i>
+              </button>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    // Sidebar toggle
+    const toggleBtn = document.getElementById('toggleSidebar');
+    const sidebar = document.getElementById('sidebar');
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('-ml-64');
+      });
+    }
+
+    // Profile dropdown
+    const profileBtn = document.getElementById('profileBtn');
+    const profileMenu = document.getElementById('profileMenu');
+    if (profileBtn) {
+      profileBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        profileMenu.classList.toggle('hidden');
+      });
+      document.addEventListener('click', () => {
+        profileMenu.classList.add('hidden');
+      });
+    }
+
+    // Notification badge
+    const notifBadge = document.getElementById('notifBadge');
+    const notificationCount = 3;
+    if (notificationCount > 0 && notifBadge) {
+      notifBadge.classList.remove('hidden');
+      notifBadge.textContent = notificationCount;
+    }
+
+    // Quick action feedback
+    function actionToast(action) {
+      alert(action + " — (placeholder action).");
+    }
+
+    // Demo buttons
+    document.getElementById('viewAllBtn').addEventListener('click', () => {
+      alert('Open full sales history (placeholder).');
+    });
+    document.getElementById('viewNotifications').addEventListener('click', () => {
+      alert('Open notifications center (placeholder).');
+    });
+    document.getElementById('globalSearch').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        alert('Searching for: ' + e.target.value + ' (demo).');
+      }
+    });
+  </script>
+</body>
+</html>
