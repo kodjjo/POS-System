@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern POS Dashboard Layout</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateX(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.6;
+        }
+      }
+
+      .nav-item {
+        animation: slideIn 0.4s ease-out forwards;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .nav-item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 3px;
+        background: linear-gradient(180deg, #10b981, #06b6d4);
+        transform: scaleY(0);
+        transition: transform 0.3s ease;
+      }
+
+      .nav-item:hover::before {
+        transform: scaleY(1);
+      }
+
+      .nav-item:nth-child(1) {
+        animation-delay: 0.1s;
+        opacity: 0;
+      }
+      .nav-item:nth-child(2) {
+        animation-delay: 0.15s;
+        opacity: 0;
+      }
+      .nav-item:nth-child(3) {
+        animation-delay: 0.2s;
+        opacity: 0;
+      }
+      .nav-item:nth-child(4) {
+        animation-delay: 0.25s;
+        opacity: 0;
+      }
+
+      .icon-wrapper {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .nav-item:hover .icon-wrapper {
+        transform: translateX(4px) scale(1.1);
+      }
+
+      .logo-glow {
+        animation: pulse 3s ease-in-out infinite;
+      }
+
+      .active-link {
+        background: linear-gradient(
+          135deg,
+          rgba(16, 185, 129, 0.2),
+          rgba(6, 182, 212, 0.2)
+        );
+        border-left: 3px solid #10b981;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-900 min-h-screen">
+    <div class="flex h-screen overflow-hidden">
+      <!-- Sidebar -->
+      <aside
+        class="w-64 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white flex flex-col shrink-0 border-r border-slate-700/50"
+      >
+        <!-- Header Section -->
+        <div class="p-4 border-b border-slate-700/50">
+          <div class="flex items-center gap-3">
+            <div class="relative">
+              <div
+                class="absolute inset-0 bg-emerald-500/20 blur-xl logo-glow rounded-full"
+              ></div>
+              <div
+                class="relative w-12 h-12 bg-gradient-to-br from-emerald-400 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg"
+              >
+                <i class="fas fa-cash-register text-xl text-white"></i>
+              </div>
+            </div>
+            <div>
+              <p
+                class="text-lg font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent"
+              >
+                POS PAY
+              </p>
+              <p class="text-xs text-slate-400">Admin Dashboard</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Section -->
+        <nav class="flex-1 p-4 space-y-1 overflow-y-auto">
+          <a
+            href="#"
+            class="nav-item active-link flex items-center gap-3 p-3 rounded-xl transition-all duration-300 group"
+          >
+            <div
+              class="icon-wrapper w-9 h-9 bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 rounded-lg flex items-center justify-center"
+            >
+              <i class="fas fa-home text-emerald-400 text-sm"></i>
+            </div>
+            <span class="font-medium text-sm">Dashboard</span>
+          </a>
+
+          <a
+            href="POS.html"
+            class="nav-item flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800/50 transition-all duration-300 group"
+          >
+            <div
+              class="icon-wrapper w-9 h-9 bg-slate-800/50 rounded-lg flex items-center justify-center"
+            >
+              <i
+                class="fas fa-box-open text-slate-400 text-sm group-hover:text-cyan-400 transition-colors"
+              ></i>
+            </div>
+            <span
+              class="font-medium text-sm text-slate-300 group-hover:text-white transition-colors"
+              >Products</span
+            >
+          </a>
+
+          <a
+            href="#"
+            class="nav-item flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800/50 transition-all duration-300 group"
+          >
+            <div
+              class="icon-wrapper w-9 h-9 bg-slate-800/50 rounded-lg flex items-center justify-center"
+            >
+              <i
+                class="fas fa-shopping-cart text-slate-400 text-sm group-hover:text-cyan-400 transition-colors"
+              ></i>
+            </div>
+            <span
+              class="font-medium text-sm text-slate-300 group-hover:text-white transition-colors"
+              >Sales</span
+            >
+          </a>
+
+          <a
+            href="#"
+            class="nav-item flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800/50 transition-all duration-300 group"
+          >
+            <div
+              class="icon-wrapper w-9 h-9 bg-slate-800/50 rounded-lg flex items-center justify-center"
+            >
+              <i
+                class="fas fa-chart-line text-slate-400 text-sm group-hover:text-cyan-400 transition-colors"
+              ></i>
+            </div>
+            <span
+              class="font-medium text-sm text-slate-300 group-hover:text-white transition-colors"
+              >Reports</span
+            >
+          </a>
+        </nav>
+
+        <!-- Footer Section -->
+        <div class="p-4 border-t border-slate-700/50 space-y-1">
+          <a
+            href="#"
+            class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800/50 transition-all duration-300 group"
+          >
+            <div
+              class="icon-wrapper w-9 h-9 bg-slate-800/50 rounded-lg flex items-center justify-center"
+            >
+              <i
+                class="fas fa-cog text-slate-400 text-sm group-hover:text-cyan-400 transition-colors"
+              ></i>
+            </div>
+            <span
+              class="font-medium text-sm text-slate-300 group-hover:text-white transition-colors"
+              >Settings</span
+            >
+          </a>
+
+          <a
+            href="#"
+            class="flex items-center gap-3 p-3 rounded-xl hover:bg-red-500/10 transition-all duration-300 group"
+          >
+            <div
+              class="icon-wrapper w-9 h-9 bg-slate-800/50 rounded-lg flex items-center justify-center group-hover:bg-red-500/20"
+            >
+              <i
+                class="fas fa-sign-out-alt text-slate-400 text-sm group-hover:text-red-400 transition-colors"
+              ></i>
+            </div>
+            <span
+              class="font-medium text-sm text-slate-300 group-hover:text-red-400 transition-colors"
+              >Logout</span
+            >
+          </a>
+        </div>
+      </aside>
+
+      <!-- Main Content Area -->
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <!-- Navbar -->
+        <header class="bg-slate-800 border-b border-slate-700/50 px-6 py-4">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-4">
+              <button
+                class="lg:hidden text-slate-400 hover:text-white transition-colors"
+              >
+                <i class="fas fa-bars text-xl"></i>
+              </button>
+              <h1 class="text-xl font-bold text-white">Dashboard</h1>
+            </div>
+
+            <div class="flex items-center gap-4">
+              <!-- Search -->
+              <div
+                class="hidden md:flex items-center bg-slate-700/50 rounded-lg px-4 py-2 gap-2"
+              >
+                <i class="fas fa-search text-slate-400 text-sm"></i>
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  class="bg-transparent border-none outline-none text-slate-300 text-sm placeholder-slate-500 w-64"
+                />
+              </div>
+
+              <!-- Theme Toggle -->
+              <button
+                id="themeToggle"
+                class="text-slate-400 hover:text-white transition-colors"
+              >
+                <i class="fas fa-moon text-xl"></i>
+              </button>
+
+              <!-- Notifications -->
+              <button
+                class="relative text-slate-400 hover:text-white transition-colors"
+              >
+                <i class="fas fa-bell text-xl"></i>
+                <span
+                  class="absolute -top-1 -right-1 w-2 h-2 bg-emerald-500 rounded-full"
+                ></span>
+              </button>
+
+              <!-- User Profile -->
+              <div
+                class="flex items-center gap-3 pl-4 border-l border-slate-700"
+              >
+                <div class="text-right hidden sm:block">
+                  <p class="text-sm font-medium text-white">Admin User</p>
+                  <p class="text-xs text-slate-400">admin@pospay.com</p>
+                </div>
+                <div
+                  class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-cyan-500 rounded-full flex items-center justify-center text-white font-bold"
+                >
+                  AU
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto bg-gray-900 p-6">
+          <div class="max-w-7xl mx-auto">
+            <!-- Content Placeholder -->
+            <div
+              class="bg-slate-800/50 border border-slate-700/50 rounded-2xl p-8 min-h-[600px] flex items-center justify-center"
+            >
+              <div class="text-center">
+                <div
+                  class="w-20 h-20 bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 rounded-2xl flex items-center justify-center mx-auto mb-4"
+                >
+                  <i class="fas fa-layer-group text-4xl text-emerald-400"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-white mb-2">
+                  Main Content Area
+                </h2>
+                <p class="text-slate-400 max-w-md">
+                  This is where your main dashboard content will go. Add your
+                  components, charts, tables, and other content here.
+                </p>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  const themeToggle = document.getElementById("themeToggle");
+  const body = document.body;
+
+  themeToggle.addEventListener("click", () => {
+    if (body.classList.contains("bg-gray-900")) {
+      body.classList.remove("bg-gray-900");
+      body.classList.add("bg-white");
+      themeToggle.innerHTML = '<i class="fas fa-sun text-xl"></i>';
+    } else {
+      body.classList.remove("bg-white");
+      body.classList.add("bg-gray-900");
+      themeToggle.innerHTML = '<i class="fas fa-moon text-xl"></i>';
+    }
+  });
+</script>
